@@ -1,0 +1,900 @@
+[gd_scene load_steps=18 format=3 uid="uid://bsa452qhocw20"]
+
+[ext_resource type="Texture2D" uid="uid://d3posl4f44vp" path="res://art/frame.png" id="1_f3aha"]
+[ext_resource type="Font" path="res://global/ui/fonts_raw/main_font.tres" id="1_ob6n7"]
+[ext_resource type="Script" path="res://board/board.gd" id="2_gqvoe"]
+[ext_resource type="PackedScene" uid="uid://et8vjly3i1tl" path="res://board/tile.tscn" id="3_s30bo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqva1"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.301961)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyak3"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8gdp"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.225, 0.225, 0.225, 0.6)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yhat"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl1a7"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Image" id="Image_eo78f"]
+data = {
+"data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 186, 255, 255, 255, 57, 255, 255, 255, 142, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 189, 255, 255, 255, 58, 255, 255, 255, 0, 255, 255, 255, 6, 255, 255, 255, 133, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 190, 255, 255, 255, 68, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 4, 255, 255, 255, 124, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 78, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 2, 255, 255, 255, 113, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 90, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 255, 255, 255, 102, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_0om0r"]
+image = SubResource( "Image_eo78f" )
+size = Vector2(16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l72c0"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fsro"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnq2a"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggd28"]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.666667)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwn1g"]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="Theme" id="Theme_fr1kp"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/hseparation = 2
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 50
+Button/fonts/font = ExtResource( "1_ob6n7" )
+Button/styles/disabled = SubResource( "StyleBoxFlat_jqva1" )
+Button/styles/focus = SubResource( "StyleBoxFlat_jyak3" )
+Button/styles/hover = SubResource( "StyleBoxFlat_m8gdp" )
+Button/styles/normal = SubResource( "StyleBoxFlat_2yhat" )
+Button/styles/pressed = SubResource( "StyleBoxFlat_dl1a7" )
+GridContainer/constants/hseparation = 0
+GridContainer/constants/vseparation = 0
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource( "1_ob6n7" )
+LineEdit/colors/caret_color = Color(0.95, 0.95, 0.95, 1)
+LineEdit/colors/clear_button_color = Color(0.875, 0.875, 0.875, 1)
+LineEdit/colors/clear_button_color_pressed = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+LineEdit/colors/font_outline_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_uneditable_color = Color(0.875, 0.875, 0.875, 0.5)
+LineEdit/colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+LineEdit/constants/caret_width = 1
+LineEdit/constants/minimum_character_width = 4
+LineEdit/constants/outline_size = 0
+LineEdit/font_sizes/font_size = 35
+LineEdit/fonts/font = ExtResource( "1_ob6n7" )
+LineEdit/icons/clear = SubResource( "ImageTexture_0om0r" )
+LineEdit/styles/focus = SubResource( "StyleBoxFlat_l72c0" )
+LineEdit/styles/normal = SubResource( "StyleBoxFlat_3fsro" )
+LineEdit/styles/read_only = SubResource( "StyleBoxFlat_lnq2a" )
+Panel/styles/panel = SubResource( "StyleBoxFlat_ggd28" )
+Panel/styles/panel_fg = SubResource( "StyleBoxFlat_qwn1g" )
+
+[node name="Board" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -928.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( "Theme_fr1kp" )
+script = ExtResource( "2_gqvoe" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ratio = 0.921
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+offset_top = 1.45496
+offset_right = 992.0
+offset_bottom = 1078.55
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerName" type="Label" parent="AspectRatioContainer/VBoxContainer"]
+offset_right = 992.0
+offset_bottom = 63.0
+size_flags_vertical = 5
+text = "PLAYER NAME"
+horizontal_alignment = 1
+vertical_alignment = 2
+clip_text = true
+
+[node name="Stack" type="Control" parent="AspectRatioContainer/VBoxContainer"]
+offset_top = 67.0
+offset_right = 992.0
+offset_bottom = 1077.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Border" type="NinePatchRect" parent="AspectRatioContainer/VBoxContainer/Stack"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( "1_f3aha" )
+draw_center = false
+patch_margin_left = 7
+patch_margin_top = 7
+patch_margin_right = 7
+patch_margin_bottom = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="AspectRatioContainer/VBoxContainer/Stack/Border"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.494118)
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tiles" type="GridContainer" parent="AspectRatioContainer/VBoxContainer/Stack"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tile" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_right = 99.0
+offset_bottom = 101.0
+
+[node name="Tile2" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_right = 198.0
+offset_bottom = 101.0
+
+[node name="Tile3" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_right = 297.0
+offset_bottom = 101.0
+
+[node name="Tile4" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_right = 396.0
+offset_bottom = 101.0
+
+[node name="Tile5" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_right = 495.0
+offset_bottom = 101.0
+
+[node name="Tile6" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_right = 594.0
+offset_bottom = 101.0
+
+[node name="Tile7" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_right = 693.0
+offset_bottom = 101.0
+
+[node name="Tile8" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_right = 792.0
+offset_bottom = 101.0
+
+[node name="Tile9" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_right = 891.0
+offset_bottom = 101.0
+
+[node name="Tile10" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_right = 990.0
+offset_bottom = 101.0
+
+[node name="Tile11" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 101.0
+offset_right = 99.0
+offset_bottom = 202.0
+
+[node name="Tile12" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 101.0
+offset_right = 198.0
+offset_bottom = 202.0
+
+[node name="Tile13" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 101.0
+offset_right = 297.0
+offset_bottom = 202.0
+
+[node name="Tile14" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 101.0
+offset_right = 396.0
+offset_bottom = 202.0
+
+[node name="Tile15" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 101.0
+offset_right = 495.0
+offset_bottom = 202.0
+
+[node name="Tile16" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 101.0
+offset_right = 594.0
+offset_bottom = 202.0
+
+[node name="Tile17" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 101.0
+offset_right = 693.0
+offset_bottom = 202.0
+
+[node name="Tile18" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 101.0
+offset_right = 792.0
+offset_bottom = 202.0
+
+[node name="Tile19" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 101.0
+offset_right = 891.0
+offset_bottom = 202.0
+
+[node name="Tile20" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 101.0
+offset_right = 990.0
+offset_bottom = 202.0
+
+[node name="Tile21" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 202.0
+offset_right = 99.0
+offset_bottom = 303.0
+
+[node name="Tile22" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 202.0
+offset_right = 198.0
+offset_bottom = 303.0
+
+[node name="Tile23" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 202.0
+offset_right = 297.0
+offset_bottom = 303.0
+
+[node name="Tile24" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 202.0
+offset_right = 396.0
+offset_bottom = 303.0
+
+[node name="Tile25" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 202.0
+offset_right = 495.0
+offset_bottom = 303.0
+
+[node name="Tile26" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 202.0
+offset_right = 594.0
+offset_bottom = 303.0
+
+[node name="Tile27" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 202.0
+offset_right = 693.0
+offset_bottom = 303.0
+
+[node name="Tile28" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 202.0
+offset_right = 792.0
+offset_bottom = 303.0
+
+[node name="Tile29" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 202.0
+offset_right = 891.0
+offset_bottom = 303.0
+
+[node name="Tile30" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 202.0
+offset_right = 990.0
+offset_bottom = 303.0
+
+[node name="Tile31" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 303.0
+offset_right = 99.0
+offset_bottom = 404.0
+
+[node name="Tile32" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 303.0
+offset_right = 198.0
+offset_bottom = 404.0
+
+[node name="Tile33" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 303.0
+offset_right = 297.0
+offset_bottom = 404.0
+
+[node name="Tile34" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 303.0
+offset_right = 396.0
+offset_bottom = 404.0
+
+[node name="Tile35" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 303.0
+offset_right = 495.0
+offset_bottom = 404.0
+
+[node name="Tile36" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 303.0
+offset_right = 594.0
+offset_bottom = 404.0
+
+[node name="Tile37" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 303.0
+offset_right = 693.0
+offset_bottom = 404.0
+
+[node name="Tile38" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 303.0
+offset_right = 792.0
+offset_bottom = 404.0
+
+[node name="Tile39" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 303.0
+offset_right = 891.0
+offset_bottom = 404.0
+
+[node name="Tile40" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 303.0
+offset_right = 990.0
+offset_bottom = 404.0
+
+[node name="Tile41" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 404.0
+offset_right = 99.0
+offset_bottom = 505.0
+
+[node name="Tile42" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 404.0
+offset_right = 198.0
+offset_bottom = 505.0
+
+[node name="Tile43" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 404.0
+offset_right = 297.0
+offset_bottom = 505.0
+
+[node name="Tile44" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 404.0
+offset_right = 396.0
+offset_bottom = 505.0
+
+[node name="Tile45" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 404.0
+offset_right = 495.0
+offset_bottom = 505.0
+
+[node name="Tile46" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 404.0
+offset_right = 594.0
+offset_bottom = 505.0
+
+[node name="Tile47" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 404.0
+offset_right = 693.0
+offset_bottom = 505.0
+
+[node name="Tile48" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 404.0
+offset_right = 792.0
+offset_bottom = 505.0
+
+[node name="Tile49" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 404.0
+offset_right = 891.0
+offset_bottom = 505.0
+
+[node name="Tile50" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 404.0
+offset_right = 990.0
+offset_bottom = 505.0
+
+[node name="Tile51" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 505.0
+offset_right = 99.0
+offset_bottom = 606.0
+
+[node name="Tile52" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 505.0
+offset_right = 198.0
+offset_bottom = 606.0
+
+[node name="Tile53" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 505.0
+offset_right = 297.0
+offset_bottom = 606.0
+
+[node name="Tile54" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 505.0
+offset_right = 396.0
+offset_bottom = 606.0
+
+[node name="Tile55" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 505.0
+offset_right = 495.0
+offset_bottom = 606.0
+
+[node name="Tile56" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 505.0
+offset_right = 594.0
+offset_bottom = 606.0
+
+[node name="Tile57" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 505.0
+offset_right = 693.0
+offset_bottom = 606.0
+
+[node name="Tile58" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 505.0
+offset_right = 792.0
+offset_bottom = 606.0
+
+[node name="Tile59" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 505.0
+offset_right = 891.0
+offset_bottom = 606.0
+
+[node name="Tile60" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 505.0
+offset_right = 990.0
+offset_bottom = 606.0
+
+[node name="Tile61" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 606.0
+offset_right = 99.0
+offset_bottom = 707.0
+
+[node name="Tile62" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 606.0
+offset_right = 198.0
+offset_bottom = 707.0
+
+[node name="Tile63" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 606.0
+offset_right = 297.0
+offset_bottom = 707.0
+
+[node name="Tile64" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 606.0
+offset_right = 396.0
+offset_bottom = 707.0
+
+[node name="Tile65" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 606.0
+offset_right = 495.0
+offset_bottom = 707.0
+
+[node name="Tile66" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 606.0
+offset_right = 594.0
+offset_bottom = 707.0
+
+[node name="Tile67" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 606.0
+offset_right = 693.0
+offset_bottom = 707.0
+
+[node name="Tile68" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 606.0
+offset_right = 792.0
+offset_bottom = 707.0
+
+[node name="Tile69" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 606.0
+offset_right = 891.0
+offset_bottom = 707.0
+
+[node name="Tile70" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 606.0
+offset_right = 990.0
+offset_bottom = 707.0
+
+[node name="Tile71" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 707.0
+offset_right = 99.0
+offset_bottom = 808.0
+
+[node name="Tile72" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 707.0
+offset_right = 198.0
+offset_bottom = 808.0
+
+[node name="Tile73" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 707.0
+offset_right = 297.0
+offset_bottom = 808.0
+
+[node name="Tile74" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 707.0
+offset_right = 396.0
+offset_bottom = 808.0
+
+[node name="Tile75" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 707.0
+offset_right = 495.0
+offset_bottom = 808.0
+
+[node name="Tile76" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 707.0
+offset_right = 594.0
+offset_bottom = 808.0
+
+[node name="Tile77" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 707.0
+offset_right = 693.0
+offset_bottom = 808.0
+
+[node name="Tile78" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 707.0
+offset_right = 792.0
+offset_bottom = 808.0
+
+[node name="Tile79" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 707.0
+offset_right = 891.0
+offset_bottom = 808.0
+
+[node name="Tile80" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 707.0
+offset_right = 990.0
+offset_bottom = 808.0
+
+[node name="Tile81" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 808.0
+offset_right = 99.0
+offset_bottom = 909.0
+
+[node name="Tile82" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 808.0
+offset_right = 198.0
+offset_bottom = 909.0
+
+[node name="Tile83" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 808.0
+offset_right = 297.0
+offset_bottom = 909.0
+
+[node name="Tile84" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 808.0
+offset_right = 396.0
+offset_bottom = 909.0
+
+[node name="Tile85" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 808.0
+offset_right = 495.0
+offset_bottom = 909.0
+
+[node name="Tile86" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 808.0
+offset_right = 594.0
+offset_bottom = 909.0
+
+[node name="Tile87" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 808.0
+offset_right = 693.0
+offset_bottom = 909.0
+
+[node name="Tile88" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 808.0
+offset_right = 792.0
+offset_bottom = 909.0
+
+[node name="Tile89" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 808.0
+offset_right = 891.0
+offset_bottom = 909.0
+
+[node name="Tile90" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 808.0
+offset_right = 990.0
+offset_bottom = 909.0
+
+[node name="Tile91" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_top = 909.0
+offset_right = 99.0
+offset_bottom = 1010.0
+
+[node name="Tile92" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 99.0
+offset_top = 909.0
+offset_right = 198.0
+offset_bottom = 1010.0
+
+[node name="Tile93" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 198.0
+offset_top = 909.0
+offset_right = 297.0
+offset_bottom = 1010.0
+
+[node name="Tile94" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 297.0
+offset_top = 909.0
+offset_right = 396.0
+offset_bottom = 1010.0
+
+[node name="Tile95" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 396.0
+offset_top = 909.0
+offset_right = 495.0
+offset_bottom = 1010.0
+
+[node name="Tile96" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 495.0
+offset_top = 909.0
+offset_right = 594.0
+offset_bottom = 1010.0
+
+[node name="Tile97" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 594.0
+offset_top = 909.0
+offset_right = 693.0
+offset_bottom = 1010.0
+
+[node name="Tile98" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 693.0
+offset_top = 909.0
+offset_right = 792.0
+offset_bottom = 1010.0
+
+[node name="Tile99" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 792.0
+offset_top = 909.0
+offset_right = 891.0
+offset_bottom = 1010.0
+
+[node name="Tile100" parent="AspectRatioContainer/VBoxContainer/Stack/Tiles" instance=ExtResource( "3_s30bo" )]
+offset_left = 891.0
+offset_top = 909.0
+offset_right = 990.0
+offset_bottom = 1010.0
+
+[node name="Fields" type="GridContainer" parent="AspectRatioContainer/VBoxContainer/Stack"]
+texture_filter = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_rect_changed" from="." to="." method="_on_board_item_rect_changed"]

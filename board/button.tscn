@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccagsy3fmqy2d"]
+
+[ext_resource type="Texture2D" uid="uid://bw6qhibyb51fl" path="res://art/tile.png" id="1_padan"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+shortcut_in_tooltip = false
+texture_normal = ExtResource( "1_padan" )
+stretch_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}

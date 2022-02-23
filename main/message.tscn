@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Theme" uid="uid://b881nnj5dq1vt" path="res://global/ui/themes/message.tres" id="1_bdk83"]
+[ext_resource type="Font" path="res://global/ui/fonts_raw/font_bold.tres" id="2_j1ijv"]
+[ext_resource type="Script" path="res://main/message.gd" id="2_o7n65"]
+
+[node name="Control" type="Panel"]
+offset_right = 1483.0
+offset_bottom = 87.0
+rect_min_size = Vector2(0, 87)
+size_flags_horizontal = 3
+theme = ExtResource( "1_bdk83" )
+script = ExtResource( "2_o7n65" )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -43.5
+offset_right = 1483.0
+offset_bottom = 43.5
+rect_min_size = Vector2(1450, 87)
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="HBoxContainer"]
+offset_top = 12.0
+offset_right = 132.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource( "2_j1ijv" )
+text = "Name"
+vertical_alignment = 1
+
+[node name="Separator" type="Label" parent="HBoxContainer"]
+offset_left = 136.0
+offset_top = 12.0
+offset_right = 162.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource( "2_j1ijv" )
+text = ": "
+vertical_alignment = 1
+
+[node name="Message" type="Label" parent="HBoxContainer"]
+offset_left = 166.0
+offset_top = 12.0
+offset_right = 1450.0
+offset_bottom = 75.0
+size_flags_horizontal = 3
+text = "Message goes here"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjxm3pcbf2tq6"]
+
+[ext_resource type="Texture2D" uid="uid://uaspeco54gkd" path="res://art/background2.jpg" id="1_h04nf"]
+
+[node name="Background" type="TextureRect"]
+modulate = Color(0.466667, 0.466667, 0.466667, 1)
+texture_filter = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( "1_h04nf" )
+ignore_texture_size = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

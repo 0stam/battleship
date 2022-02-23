@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://et8vjly3i1tl"]
+
+[ext_resource type="Texture2D" uid="uid://d3posl4f44vp" path="res://art/frame.png" id="1_0sq01"]
+
+[node name="Tile" type="NinePatchRect"]
+offset_right = 76.0
+offset_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( "1_0sq01" )
+draw_center = false
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
