@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://uwtrk8majwnp"]
+
+[ext_resource type="Shader" uid="uid://dgaosjffpebfo" path="res://global/shaders/radar.tres" id="1_vmky0"]
+
+[resource]
+shader = ExtResource( "1_vmky0" )
+shader_param/WaveSeparation = 0.7
+shader_param/Frequency = 1.0
+shader_param/Speed = 1.0
+shader_param/AlwaysVisible = 0.03

@@ -1,6 +1,6 @@
 extends Control
 
-const graphics = {
+const graphics: Dictionary = {
 	Field.EMPTY: null,
 	Field.HIT: preload("res://art/tile_graphics/hit.png"),
 	Field.SHIP: preload("res://art/tile_graphics/ship.png"),
@@ -29,6 +29,7 @@ func _ready() -> void:
 			var button: TextureRect = board_button_scene.instantiate()
 			button.name = str(x) + " " + str(y)
 			button.pressed.connect(_field_pressed)
+			button.hovered.connect(_field_hovered)
 			fields.add_child(button)
 	
 	# Create 2D list of empty fields
@@ -37,15 +38,10 @@ func _ready() -> void:
 		for j in 10:
 			board[i].append(Field.EMPTY)
 	
-#	for i in range(2, 6):
-#		set_field_graphic(i, 3, Field.SHIP)
-#	set_field_graphic(3, 3, Field.HIT_SHIP)
-#	set_field_graphic(3, 4, Field.HIT)
-#	set_field_graphic(3, 2, Field.HIT)
-#	for i in range(5, 9):
-#		set_field_graphic(7, i, Field.SUNK_SHIP)
-#	for i in range(1, 4):
-#		set_field_graphic(i, 7, Field.SHIP)
+	# Set player name
+	player_name = Network.nickname
+	
+	Signals.board_updated.connect(update_board)
 
 
 func set_frame_size() -> void:
@@ -73,8 +69,20 @@ func set_frame_size() -> void:
 	border.offset_bottom = -space_y
 
 
-func set_field_graphic(x: int, y: int, type: int):
+func set_field_graphic(x: int, y: int, type: int, opacity: float) -> void:
 	fields.get_node(str(x) + " " + str(y)).texture = graphics[type]
+	fields.get_node(str(x) + " " + str(y)).modulate.a = opacity
+
+
+func update_board(player: String, new_board: Array[Array], hover: Array[Array]) -> void:
+	if player != player_name:
+		return
+	
+	for x in len(board):
+		for y in len(board[0]):
+			set_field_graphic(x, y, hover[x][y], 0.5)
+			if new_board[x][y] != Field.EMPTY:
+				set_field_graphic(x, y, new_board[x][y], 1)
 
 
 func _on_board_item_rect_changed() -> void:
@@ -82,4 +90,8 @@ func _on_board_item_rect_changed() -> void:
 
 
 func _field_pressed(x: int, y: int, button: int):
-	print(x, " ", y, " ", button)
+	Signals.field_pressed.emit(x, y, button, player_name)
+
+
+func _field_hovered(x: int, y: int):
+	Signals.field_hovered.emit(x, y, player_name)

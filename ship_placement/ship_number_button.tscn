@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcceu7svlvfdr"]
+
+[ext_resource type="Theme" uid="uid://bg75lvo5no27c" path="res://global/ui/themes/ship_number.tres" id="1_0ruid"]
+[ext_resource type="Script" path="res://ship_placement/ship_number_button.gd" id="2_l3jy8"]
+
+[node name="ShipNumberButton" type="Button" groups=["ship_number_buttons"]]
+use_parent_material = true
+offset_top = 84.0
+offset_right = 939.0
+offset_bottom = 152.0
+focus_mode = 0
+theme = ExtResource( "1_0ruid" )
+toggle_mode = true
+button_mask = 7
+script = ExtResource( "2_l3jy8" )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 5.0
+
+[node name="Length" type="Label" parent="HBoxContainer"]
+use_parent_material = true
+offset_right = 464.0
+offset_bottom = 63.0
+size_flags_horizontal = 3
+text = "0 field:"
+
+[node name="Quantity" type="Label" parent="HBoxContainer"]
+use_parent_material = true
+offset_left = 468.0
+offset_right = 932.0
+offset_bottom = 63.0
+size_flags_horizontal = 3
+text = "0"
+
+[connection signal="toggled" from="." to="." method="_on_ship_number_button_toggled"]

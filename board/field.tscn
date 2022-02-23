@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://board/field.gd" id="1_fedgu"]
 
 [node name="Field" type="TextureRect"]
+use_parent_material = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -925.0
@@ -10,9 +11,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 ignore_texture_size = true
 script = ExtResource( "1_fedgu" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="gui_input" from="." to="." method="_on_field_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_field_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_field_mouse_exited"]

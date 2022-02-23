@@ -5,7 +5,7 @@ const MAX_CLIENTS: int = 2
 
 var peer: ENetMultiplayerPeer = null
 
-var nickname: String = ""
+var nickname: String = "ktostam"
 var players = {}
 
 signal player_list_changed
@@ -32,8 +32,6 @@ func _connection_failed():
 	print("Server connection failed")
 
 func _server_disconnected():
-	print("Server disconnected")
-	print("Server disconnected")
 	print("Server disconnected")
 
 func create_server(new_name: String):

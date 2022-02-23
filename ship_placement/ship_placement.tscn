@@ -1,44 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy1ycsmjbtn2a"]
+[gd_scene load_steps=7 format=3 uid="uid://4kul0bqx2pis"]
 
+[ext_resource type="Material" uid="uid://uwtrk8majwnp" path="res://global/shaders/radar_shader.tres" id="1_5utdo"]
 [ext_resource type="Theme" uid="uid://dsxwcryjuhygn" path="res://global/ui/themes/main_theme.tres" id="1_ftjh8"]
 [ext_resource type="PackedScene" uid="uid://cjxm3pcbf2tq6" path="res://global/ui/scenes/background.tscn" id="2_swcho"]
 [ext_resource type="PackedScene" uid="uid://bsa452qhocw20" path="res://board/board.tscn" id="3_ds6qm"]
-[ext_resource type="Theme" uid="uid://bg75lvo5no27c" path="res://global/ui/themes/ship_number.tres" id="4_7s7sn"]
+[ext_resource type="Script" path="res://ship_placement/ship_placement.gd" id="3_rp2db"]
+[ext_resource type="PackedScene" uid="uid://dcceu7svlvfdr" path="res://ship_placement/ship_number_button.tscn" id="4_fx3o5"]
 
 [node name="ShipPlacement" type="Control"]
+material = ExtResource( "1_5utdo" )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( "1_ftjh8" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( "3_rp2db" )
 
 [node name="Background" parent="." instance=ExtResource( "2_swcho" )]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 modulate = Color(0.192157, 0.945098, 0.211765, 1)
+use_parent_material = true
+anchor_left = 0.01
 anchor_top = 0.02
-anchor_right = 1.0
+anchor_right = 0.99
 anchor_bottom = 0.98
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Title" type="Label" parent="VBoxContainer"]
-offset_right = 1920.0
+use_parent_material = true
+offset_right = 1881.0
 offset_bottom = 117.0
 theme_override_font_sizes/font_size = 96
 text = "SHIP LAYOUT"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+use_parent_material = true
 offset_top = 121.0
-offset_right = 1920.0
+offset_right = 1881.0
 offset_bottom = 131.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+use_parent_material = true
 offset_top = 135.0
-offset_right = 1920.0
+offset_right = 1881.0
 offset_bottom = 1036.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -46,191 +49,84 @@ size_flags_vertical = 3
 [node name="Board" parent="VBoxContainer/HBoxContainer" instance=ExtResource( "3_ds6qm" )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 958.0
+offset_right = 938.0
 offset_bottom = 901.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-offset_left = 962.0
-offset_right = 1920.0
+use_parent_material = true
+offset_left = 942.0
+offset_right = 1881.0
 offset_bottom = 901.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_right = 958.0
+use_parent_material = true
+offset_right = 939.0
 offset_bottom = 80.0
 theme_override_font_sizes/font_size = 65
 text = "Ships available:"
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ShipNumberButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
 offset_top = 84.0
-offset_right = 958.0
-offset_bottom = 152.0
-theme = ExtResource( "4_7s7sn" )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button2/HBoxContainer"]
-offset_right = 473.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "5 fields:"
-
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button2/HBoxContainer"]
-offset_left = 477.0
-offset_right = 951.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "1"
-
-[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_top = 156.0
-offset_right = 958.0
-offset_bottom = 224.0
-theme = ExtResource( "4_7s7sn" )
-disabled = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button3/HBoxContainer"]
-offset_right = 473.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "4 fields:"
-
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button3/HBoxContainer"]
-offset_left = 477.0
-offset_right = 951.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "2"
-
-[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_top = 228.0
-offset_right = 958.0
-offset_bottom = 296.0
-theme = ExtResource( "4_7s7sn" )
-disabled = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button4/HBoxContainer"]
-offset_right = 473.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "3 fields:"
-
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button4/HBoxContainer"]
-offset_left = 477.0
-offset_right = 951.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "3"
-
-[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_top = 300.0
-offset_right = 958.0
+offset_right = 939.0
 offset_bottom = 368.0
-theme = ExtResource( "4_7s7sn" )
-disabled = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button5/HBoxContainer"]
-offset_right = 473.0
-offset_bottom = 63.0
 size_flags_horizontal = 3
-text = "2 fields:"
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button5/HBoxContainer"]
-offset_left = 477.0
-offset_right = 951.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "3"
+[node name="ShipNumberButton2" parent="VBoxContainer/HBoxContainer/VBoxContainer/ShipNumberButtons" instance=ExtResource( "4_fx3o5" )]
+offset_top = 0.0
+offset_bottom = 68.0
+length = 4
+quantity = 1
 
-[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_top = 372.0
-offset_right = 958.0
-offset_bottom = 440.0
-theme = ExtResource( "4_7s7sn" )
-disabled = true
+[node name="ShipNumberButton3" parent="VBoxContainer/HBoxContainer/VBoxContainer/ShipNumberButtons" instance=ExtResource( "4_fx3o5" )]
+offset_top = 72.0
+offset_bottom = 140.0
+length = 3
+quantity = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ShipNumberButton4" parent="VBoxContainer/HBoxContainer/VBoxContainer/ShipNumberButtons" instance=ExtResource( "4_fx3o5" )]
+offset_top = 144.0
+offset_bottom = 212.0
+length = 2
+quantity = 3
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button6/HBoxContainer"]
-offset_right = 473.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "1 fields:"
-
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Button6/HBoxContainer"]
-offset_left = 477.0
-offset_right = 951.0
-offset_bottom = 63.0
-size_flags_horizontal = 3
-text = "5"
+[node name="ShipNumberButton5" parent="VBoxContainer/HBoxContainer/VBoxContainer/ShipNumberButtons" instance=ExtResource( "4_fx3o5" )]
+offset_top = 216.0
+offset_bottom = 284.0
+length = 1
+quantity = 4
 
 [node name="Separation" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_top = 444.0
-offset_right = 958.0
-offset_bottom = 529.0
+use_parent_material = true
+offset_top = 372.0
+offset_right = 939.0
+offset_bottom = 493.0
 size_flags_vertical = 3
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_top = 533.0
-offset_right = 958.0
-offset_bottom = 722.0
-text = "Click on a field to put a ship there.
-Right-click to remove it.
-Press space to rotate the current ship."
+use_parent_material = true
+offset_top = 497.0
+offset_right = 939.0
+offset_bottom = 686.0
+text = "Click on a field to put a ship
+Right-click to remove it
+Press space to rotate the current ship"
 autowrap_mode = 2
 
 [node name="Separation2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-offset_top = 726.0
-offset_right = 958.0
+use_parent_material = true
+offset_top = 690.0
+offset_right = 939.0
 offset_bottom = 812.0
 size_flags_vertical = 3
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
 offset_top = 816.0
-offset_right = 958.0
+offset_right = 939.0
 offset_bottom = 901.0
 theme_override_font_sizes/font_size = 65
 text = "Ready"

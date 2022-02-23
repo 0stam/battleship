@@ -1,8 +1,8 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bg75lvo5no27c"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://bg75lvo5no27c"]
 
 [ext_resource type="Font" path="res://global/ui/fonts_raw/main_font.tres" id="1_tydht"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqva1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdm0n"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyak3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3soc"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -37,24 +37,24 @@ expand_margin_right = 2.0
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m8gdp"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_te33r"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
+bg_color = Color(0.223529, 0.223529, 0.223529, 0)
 border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(1, 1, 1, 1)
+border_color = Color(0.949219, 0.949219, 0.949219, 0.784314)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yhat"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffvfo"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -71,23 +71,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl1a7"]
-content_margin_left = 4.0
-content_margin_right = 4.0
-content_margin_top = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_pgqas"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vbflo"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 0.0
@@ -95,7 +79,7 @@ content_margin_bottom = 0.0
 color = Color(1, 1, 1, 1)
 thickness = 4
 
-[sub_resource type="Image" id="Image_vpqkk"]
+[sub_resource type="Image" id="Image_7i3um"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 186, 255, 255, 255, 57, 255, 255, 255, 142, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 189, 255, 255, 255, 58, 255, 255, 255, 0, 255, 255, 255, 6, 255, 255, 255, 133, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 96, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 190, 255, 255, 255, 68, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 4, 255, 255, 255, 124, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 97, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 78, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 2, 255, 255, 255, 113, 255, 255, 255, 191, 255, 255, 255, 191, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 97, 255, 255, 255, 90, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 1, 255, 255, 255, 102, 255, 255, 255, 96, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -104,11 +88,11 @@ data = {
 "width": 16
 }
 
-[sub_resource type="ImageTexture" id="ImageTexture_0om0r"]
-image = SubResource( "Image_vpqkk" )
+[sub_resource type="ImageTexture" id="ImageTexture_s4uoo"]
+image = SubResource( "Image_7i3um" )
 size = Vector2(16, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l72c0"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7stq"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -125,7 +109,7 @@ expand_margin_right = 2.0
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fsro"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fji24"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -146,7 +130,7 @@ expand_margin_right = 2.0
 expand_margin_top = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnq2a"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v2td"]
 content_margin_left = 4.0
 content_margin_right = 4.0
 content_margin_top = 4.0
@@ -160,7 +144,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggd28"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmc2s"]
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
@@ -172,7 +156,7 @@ corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwn1g"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pvwdt"]
 content_margin_left = 0.0
 content_margin_right = 0.0
 content_margin_top = 0.0
@@ -202,15 +186,15 @@ Button/constants/hseparation = 2
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 50
 Button/fonts/font = ExtResource( "1_tydht" )
-Button/styles/disabled = SubResource( "StyleBoxFlat_jqva1" )
-Button/styles/focus = SubResource( "StyleBoxFlat_jyak3" )
-Button/styles/hover = SubResource( "StyleBoxFlat_m8gdp" )
-Button/styles/normal = SubResource( "StyleBoxFlat_2yhat" )
-Button/styles/pressed = SubResource( "StyleBoxFlat_dl1a7" )
+Button/styles/disabled = SubResource( "StyleBoxFlat_kdm0n" )
+Button/styles/focus = SubResource( "StyleBoxFlat_t3soc" )
+Button/styles/hover = SubResource( "StyleBoxFlat_te33r" )
+Button/styles/normal = SubResource( "StyleBoxFlat_kdm0n" )
+Button/styles/pressed = SubResource( "StyleBoxFlat_ffvfo" )
 GridContainer/constants/hseparation = 0
 GridContainer/constants/vseparation = 0
 HSeparator/constants/separation = 10
-HSeparator/styles/separator = SubResource( "StyleBoxLine_pgqas" )
+HSeparator/styles/separator = SubResource( "StyleBoxLine_vbflo" )
 Label/font_sizes/font_size = 50
 Label/fonts/font = ExtResource( "1_tydht" )
 LineEdit/colors/caret_color = Color(0.95, 0.95, 0.95, 1)
@@ -227,9 +211,9 @@ LineEdit/constants/minimum_character_width = 4
 LineEdit/constants/outline_size = 0
 LineEdit/font_sizes/font_size = 35
 LineEdit/fonts/font = ExtResource( "1_tydht" )
-LineEdit/icons/clear = SubResource( "ImageTexture_0om0r" )
-LineEdit/styles/focus = SubResource( "StyleBoxFlat_l72c0" )
-LineEdit/styles/normal = SubResource( "StyleBoxFlat_3fsro" )
-LineEdit/styles/read_only = SubResource( "StyleBoxFlat_lnq2a" )
-Panel/styles/panel = SubResource( "StyleBoxFlat_ggd28" )
-Panel/styles/panel_fg = SubResource( "StyleBoxFlat_qwn1g" )
+LineEdit/icons/clear = SubResource( "ImageTexture_s4uoo" )
+LineEdit/styles/focus = SubResource( "StyleBoxFlat_y7stq" )
+LineEdit/styles/normal = SubResource( "StyleBoxFlat_fji24" )
+LineEdit/styles/read_only = SubResource( "StyleBoxFlat_4v2td" )
+Panel/styles/panel = SubResource( "StyleBoxFlat_bmc2s" )
+Panel/styles/panel_fg = SubResource( "StyleBoxFlat_pvwdt" )

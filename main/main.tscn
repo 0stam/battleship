@@ -10,9 +10,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( "1_unspq" )
 script = ExtResource( "2_uutk6" )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Background" parent="." instance=ExtResource( "3_jvnss" )]
 
@@ -27,9 +24,9 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="VBoxContainer"]
+rect_min_size = Vector2(50, 0)
 offset_right = 1920.0
 offset_bottom = 117.0
-rect_min_size = Vector2(50, 0)
 theme_override_font_sizes/font_size = 96
 text = "Batlleship"
 horizontal_alignment = 1
@@ -53,11 +50,11 @@ offset_bottom = 959.0
 size_flags_stretch_ratio = 0.6
 
 [node name="VSeparator" type="Label" parent="VBoxContainer/Boards"]
+rect_min_size = Vector2(5, 0)
 offset_left = 437.0
 offset_top = 449.0
 offset_right = 442.0
 offset_bottom = 509.0
-rect_min_size = Vector2(5, 0)
 
 [node name="Board2" parent="VBoxContainer/Boards" instance=ExtResource( "1_6efv2" )]
 anchor_right = 0.0
@@ -67,11 +64,11 @@ offset_right = 1169.0
 offset_bottom = 959.0
 
 [node name="VSeparator2" type="Label" parent="VBoxContainer/Boards"]
+rect_min_size = Vector2(20, 0)
 offset_left = 1173.0
 offset_top = 449.0
 offset_right = 1193.0
 offset_bottom = 509.0
-rect_min_size = Vector2(20, 0)
 
 [node name="Board3" parent="VBoxContainer/Boards" instance=ExtResource( "1_6efv2" )]
 anchor_right = 0.0

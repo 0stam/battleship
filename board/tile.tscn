@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d3posl4f44vp" path="res://art/frame.png" id="1_0sq01"]
 
 [node name="Tile" type="NinePatchRect"]
+use_parent_material = true
 offset_right = 76.0
 offset_bottom = 76.0
 size_flags_horizontal = 3
