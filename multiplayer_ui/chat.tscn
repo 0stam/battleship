@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://7bi6stnkfhrk"]
+
+[ext_resource type="Script" path="res://multiplayer_ui/chat.gd" id="1_7stlw"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_68xw6"]
+action = &"send"
+
+[sub_resource type="Shortcut" id="Shortcut_6edoq"]
+events = [SubResource( "InputEventAction_68xw6" )]
+
+[node name="Chat" type="VBoxContainer"]
+use_parent_material = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( "1_7stlw" )
+
+[node name="MessagesScroll" type="ScrollContainer" parent="."]
+use_parent_material = true
+offset_right = 1920.0
+offset_bottom = 1005.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Messages" type="VBoxContainer" parent="MessagesScroll"]
+use_parent_material = true
+offset_right = 1920.0
+offset_bottom = 1005.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MessageSender" type="HBoxContainer" parent="."]
+use_parent_material = true
+offset_top = 1009.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Edit" type="LineEdit" parent="MessageSender"]
+use_parent_material = true
+offset_right = 1856.0
+offset_bottom = 71.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 45
+placeholder_text = "[type your message here]"
+
+[node name="Separation" type="Label" parent="MessageSender"]
+use_parent_material = true
+rect_min_size = Vector2(5, 0)
+offset_left = 1860.0
+offset_top = 24.0
+offset_right = 1865.0
+offset_bottom = 47.0
+
+[node name="Send" type="Button" parent="MessageSender"]
+use_parent_material = true
+offset_left = 1869.0
+offset_right = 1920.0
+offset_bottom = 71.0
+shortcut = SubResource( "Shortcut_6edoq" )
+text = "SEND"
+
+[connection signal="pressed" from="MessageSender/Send" to="." method="_on_send_pressed"]

@@ -1,0 +1,153 @@
+[gd_scene load_steps=8 format=3 uid="uid://10lyubyfbfjw"]
+
+[ext_resource type="PackedScene" uid="uid://cjxm3pcbf2tq6" path="res://global/ui/scenes/background.tscn" id="1_5nkad"]
+[ext_resource type="Theme" uid="uid://dsxwcryjuhygn" path="res://global/ui/themes/main_theme.tres" id="1_772t6"]
+[ext_resource type="Material" uid="uid://uwtrk8majwnp" path="res://global/shaders/radar_shader.tres" id="3_3fqgp"]
+[ext_resource type="Script" path="res://multiplayer_ui/lobby.gd" id="3_28fdk"]
+[ext_resource type="Theme" uid="uid://bddsoyarth3r5" path="res://global/ui/themes/lobby_content.tres" id="4_5df8k"]
+[ext_resource type="PackedScene" uid="uid://7bi6stnkfhrk" path="res://multiplayer_ui/chat.tscn" id="4_hihwd"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3semi"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
+[node name="Lobby" type="Control"]
+material = ExtResource( "3_3fqgp" )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( "1_772t6" )
+script = ExtResource( "3_28fdk" )
+
+[node name="Background" parent="." instance=ExtResource( "1_5nkad" )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(0.192157, 0.945098, 0.211765, 1)
+material = ExtResource( "3_3fqgp" )
+use_parent_material = true
+anchor_left = 0.01
+anchor_top = 0.02
+anchor_right = 0.99
+anchor_bottom = 0.98
+__meta__ = {
+"_edit_layout_mode": 1,
+"_edit_use_custom_anchors": true
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+use_parent_material = true
+offset_right = 1881.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 96
+text = "Lobby"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+use_parent_material = true
+offset_top = 121.0
+offset_right = 1881.0
+offset_bottom = 131.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+use_parent_material = true
+offset_top = 135.0
+offset_right = 1881.0
+offset_bottom = 1036.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( "4_5df8k" )
+
+[node name="Left" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+use_parent_material = true
+offset_right = 531.0
+offset_bottom = 901.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+theme = ExtResource( "4_5df8k" )
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/Left"]
+use_parent_material = true
+offset_right = 531.0
+offset_bottom = 80.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 65
+text = "Players connected"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/Left"]
+use_parent_material = true
+offset_top = 84.0
+offset_right = 531.0
+offset_bottom = 94.0
+theme_override_styles/separator = SubResource( "StyleBoxLine_3semi" )
+
+[node name="PlayerList" type="Panel" parent="VBoxContainer/HBoxContainer/Left"]
+use_parent_material = true
+offset_top = 98.0
+offset_right = 531.0
+offset_bottom = 769.0
+size_flags_vertical = 3
+theme = ExtResource( "4_5df8k" )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Left/PlayerList"]
+use_parent_material = true
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.99
+anchor_bottom = 0.99
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_layout_mode": 1,
+"_edit_use_custom_anchors": true
+}
+
+[node name="StartGame" type="Button" parent="VBoxContainer/HBoxContainer/Left"]
+use_parent_material = true
+offset_top = 773.0
+offset_right = 531.0
+offset_bottom = 901.0
+disabled = true
+text = "Wait for the host
+to start the game"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+use_parent_material = true
+rect_min_size = Vector2(50, 0)
+offset_left = 535.0
+offset_right = 585.0
+offset_bottom = 901.0
+
+[node name="Right" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+use_parent_material = true
+offset_left = 589.0
+offset_right = 1881.0
+offset_bottom = 901.0
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/Right"]
+use_parent_material = true
+offset_right = 1292.0
+offset_bottom = 80.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 65
+text = "Chat"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/Right"]
+use_parent_material = true
+offset_top = 84.0
+offset_right = 1292.0
+offset_bottom = 94.0
+theme_override_styles/separator = SubResource( "StyleBoxLine_3semi" )
+
+[node name="Chat" parent="VBoxContainer/HBoxContainer/Right" instance=ExtResource( "4_hihwd" )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 98.0
+offset_right = 1292.0
+offset_bottom = 901.0
+__meta__ = {
+"_edit_horizontal_guides_": [-100.0, 119.0],
+"_edit_vertical_guides_": [265.0]
+}
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Left/StartGame" to="." method="_on_start_game_pressed"]

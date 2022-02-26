@@ -24,14 +24,16 @@ func _ready() -> void:
 	quantity = quantity
 
 
-func _on_ship_number_button_toggled(button_pressed: bool) -> void:
-	if button_pressed:
+func _on_ship_number_button_toggled(button_state: bool) -> void:
+	if button_state:
 		length_selected.emit(length)
 		get_tree().call_group("ship_number_buttons", StringName("disable"), length)
+	else:
+		set_pressed_no_signal(true)
 
 
 func disable(exception: int):  # Should be called on group
-	button_pressed = length == exception
+	set_pressed_no_signal(length == exception)
 
 
 func update_quantity(target_length: int, val: int):  # Should be called on group

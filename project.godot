@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Battleship"
-run/main_scene="res://ship_placement/ship_placement.tscn"
+run/main_scene="res://multiplayer_ui/connection_screen.tscn"
 config/icon="res://icon.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 
