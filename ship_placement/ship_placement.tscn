@@ -123,10 +123,12 @@ offset_bottom = 812.0
 size_flags_vertical = 3
 autowrap_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ReadyButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 use_parent_material = true
 offset_top = 816.0
 offset_right = 939.0
 offset_bottom = 901.0
 theme_override_font_sizes/font_size = 65
 text = "Ready"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/ReadyButton" to="." method="_on_ready_button_pressed"]

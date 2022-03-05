@@ -89,9 +89,9 @@ func _on_board_item_rect_changed() -> void:
 	set_frame_size()
 
 
-func _field_pressed(x: int, y: int, button: int):
-	Signals.field_pressed.emit(x, y, button, player_name)
+func _field_pressed(coords: Vector2i, button: int):
+	Signals.field_pressed.emit(coords, button, player_name)
 
 
-func _field_hovered(x: int, y: int):
-	Signals.field_hovered.emit(x, y, player_name)
+func _field_hovered(coords: Vector2i):
+	Signals.field_hovered.emit(coords, player_name)

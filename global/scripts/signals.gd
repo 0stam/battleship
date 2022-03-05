@@ -1,7 +1,7 @@
 extends Node
 
-signal field_pressed(x: int, y: int, mouse_button: int, player: String)
-signal field_hovered(x: int, y: int, player: String)
+signal field_pressed(coords: Vector2i, mouse_button: int, player: String)
+signal field_hovered(coords: Vector2i, player: String)
 
 signal board_updated(player: String, board: Array, hover: Array)
 

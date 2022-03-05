@@ -1,8 +1,8 @@
 extends TextureRect
 # Uses custom button logic, necessary for identyfying the left/right mouse button presses
 
-signal pressed(x: int, y: int, mouse_button: int)
-signal hovered(x: int, y: int)
+signal pressed(coords: Vector2i, mouse_button: int)
+signal hovered(coords: Vector2i)
 
 # Stores mouse buttons states to be able to activate only on release in the button's area
 var buttons_pressed: Array[bool] = [false, false]
@@ -21,7 +21,7 @@ func _on_field_gui_input(event: InputEvent) -> void:
 			if buttons_pressed[event.button_index - 1]:
 				# The button's name should be equal to its position in the grid
 				var position: Vector2i = parse_position()
-				pressed.emit(position.x, position.y, event.button_index)
+				pressed.emit(parse_position(), event.button_index)
 			buttons_pressed[event.button_index - 1] = false
 
 
@@ -31,4 +31,4 @@ func _on_field_mouse_exited() -> void:
 
 
 func _on_field_mouse_entered() -> void:
-	hovered.emit(parse_position().x, parse_position().y)
+	hovered.emit(parse_position())

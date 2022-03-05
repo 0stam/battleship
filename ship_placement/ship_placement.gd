@@ -4,10 +4,13 @@ var direction: Vector2i = Vector2i.RIGHT
 var length: int = 0
 
 var current_mouse_pos: Vector2i = Vector2i.ZERO
+var players_ready: int = 0
 
 var ship_number_button_scene = preload("res://ship_placement/ship_number_button.tscn")
 
 @onready var ship_number_buttons = $VBoxContainer/HBoxContainer/VBoxContainer/ShipNumberButtons
+@onready var ready_button: Button = $VBoxContainer/HBoxContainer/VBoxContainer/ReadyButton
+
 
 
 func _ready() -> void:
@@ -36,20 +39,27 @@ func update_ship_quantity():
 								length, Global.rules["ship_number"][length] - ship_quantity[length])
 
 
-func _field_pressed(x: int, y: int, button: int, player: String) -> void:
-	print(x, " ", y)
-	if button == MOUSE_BUTTON_LEFT and Global.can_place(x, y, direction, length):
-		Global.place(x, y, direction, length)
+@rpc(any_peer, call_local)
+func register_ready() -> void:
+	players_ready += 1
+	if players_ready >= 3 and multiplayer.is_server():
+		Network.rpc(StringName("change_scene"), "res://main/main.tscn", true)
+
+
+func _field_pressed(coords: Vector2i, button: int, player: String) -> void:
+	print(coords.x, " ", coords.y)
+	if button == MOUSE_BUTTON_LEFT and Global.can_place(coords, direction, length):
+		Global.place(coords, direction, length)
 	elif button == MOUSE_BUTTON_RIGHT:
-		Global.remove(x, y)
-	Signals.board_updated.emit(player, Global.board, Global.parse_hover(x, y, direction, length))
+		Global.remove(coords)
+	Signals.register_board_update(player, Global.board, Global.parse_hover(coords, direction, length))
 	update_ship_quantity()
 
 
-func _field_hovered(x: int, y: int, player: String) -> void:
-	Signals.board_updated.emit(player, Global.board, Global.parse_hover(x, y, direction, length))
-	current_mouse_pos.x = x
-	current_mouse_pos.y = y
+func _field_hovered(coords: Vector2i, player: String) -> void:
+	Signals.register_board_update(player, Global.board, Global.parse_hover(coords, direction, length))
+	current_mouse_pos.x = coords.x
+	current_mouse_pos.y = coords.y
 
 
 func _length_selected(val: int) -> void:
@@ -62,6 +72,16 @@ func _input(event: InputEvent) -> void:
 			direction = Vector2i.DOWN
 		else:
 			direction = Vector2i.RIGHT
-		Signals.board_updated.emit(Network.nickname, Global.board,
-									Global.parse_hover(current_mouse_pos.x, current_mouse_pos.y,
-									direction, length))
+		Signals.register_board_update(Network.nickname, Global.board,
+										Global.parse_hover(current_mouse_pos, direction, length))
+
+
+func _on_ready_button_pressed() -> void:
+	var ship_quantity: Dictionary = Global.get_ship_count()
+	for length in ship_quantity:
+		if ship_quantity[length] < Global.rules["ship_number"][length]:
+			return
+	rpc(StringName("register_ready"))
+	ready_button.disabled = true
+	ready_button.text = "Waiting for other players"
+	
