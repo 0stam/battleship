@@ -11,7 +11,7 @@ const graphics: Dictionary = {
 var board_button_scene = preload("res://board/field.tscn")
 
 var board = []  # Contains contents of each field, 2D list should be created here
-var player_name: String:
+var player_name: String = "":
 	set(val):
 		player_name = val
 		player_name_label.text = val
@@ -74,7 +74,7 @@ func set_field_graphic(x: int, y: int, type: int, opacity: float) -> void:
 	fields.get_node(str(x) + " " + str(y)).modulate.a = opacity
 
 
-func update_board(player: String, new_board: Array[Array], hover: Array[Array]) -> void:
+func update_board(player: String, new_board: Array, hover: Array) -> void:
 	if player != player_name:
 		return
 	

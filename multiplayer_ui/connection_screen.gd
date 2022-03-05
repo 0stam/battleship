@@ -4,6 +4,11 @@ extends Control
 @onready var ip_edit: LineEdit = $Panel/VBoxContainer/IP/IPEdit
 
 
+func _ready() -> void:  # Delete once testing is finished
+	randomize()
+	name_edit.text = str(randi())
+
+
 func _on_create_server_pressed() -> void:
 	if not name_edit.text.is_empty():
 		Network.create_server(name_edit.text)

@@ -84,7 +84,7 @@ theme_override_styles/separator = SubResource( "StyleBoxLine_3semi" )
 use_parent_material = true
 offset_top = 98.0
 offset_right = 531.0
-offset_bottom = 769.0
+offset_bottom = 829.0
 size_flags_vertical = 3
 theme = ExtResource( "4_5df8k" )
 
@@ -103,12 +103,11 @@ __meta__ = {
 
 [node name="StartGame" type="Button" parent="VBoxContainer/HBoxContainer/Left"]
 use_parent_material = true
-offset_top = 773.0
+offset_top = 833.0
 offset_right = 531.0
 offset_bottom = 901.0
 disabled = true
-text = "Wait for the host
-to start the game"
+text = "Connecting..."
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 use_parent_material = true

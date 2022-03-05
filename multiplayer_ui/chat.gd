@@ -14,6 +14,8 @@ func _ready() -> void:
 
 @rpc(any_peer, call_local)
 func add_message(nickname: String, content: String) -> void:
+	await get_tree().process_frame  # Required for some reason
+	
 	var message: Panel = message_scene.instantiate()
 	message.nickname = nickname
 	message.content = content
@@ -23,8 +25,6 @@ func add_message(nickname: String, content: String) -> void:
 	
 	await get_tree().process_frame
 	messages_scroll.scroll_vertical = scroll_bar.max_value
-	
-	
 
 
 func parse_chat(chat_history: Array) -> void:

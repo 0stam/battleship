@@ -9,15 +9,23 @@ var nickname: String = "ktostam"
 var players: Dictionary = {}
 var chat: Array = []
 
+var can_disconnect: bool = true
+
 signal player_list_changed
 
 func _ready() -> void:
-	print("Program started")
 	multiplayer.peer_connected.connect(_player_connected)
 	multiplayer.peer_disconnected.connect(_player_disconnected)
 	multiplayer.connected_to_server.connect(_connected_to_server)
 	multiplayer.connection_failed.connect(_connection_failed)
 	multiplayer.server_disconnected.connect(_server_disconnected)
+
+func reset_network():
+	nickname = ""
+	players = {}
+	chat = []
+	peer = null
+	change_scene("res://multiplayer_ui/connection_screen.tscn", true)
 
 func _player_connected(id):
 	print("Player " + str(id) + " has connected")
@@ -30,17 +38,19 @@ func _player_disconnected(id):
 		players.erase(id)
 		Signals.player_list_updated.emit(players.values())
 	print("Player " + str(id) + " has disconnected")
+	if not can_disconnect:
+		reset_network()
 
 func _connected_to_server():
 	print("Connected to server")
 
 func _connection_failed():
 	print("Server connection failed")
-	change_scene("res://multiplayer_ui/connection_screen.tscn")
+	reset_network()
 
 func _server_disconnected():
 	print("Server disconnected")
-	change_scene("res://multiplayer_ui/connection_screen.tscn")
+	reset_network()
 
 func create_server(new_name: String):
 	nickname = new_name
@@ -66,5 +76,6 @@ func set_chat_history(chat_history: Array):
 	Signals.chat_history_updated.emit(chat.duplicate(true))
 
 @rpc(call_local)
-func change_scene(scene: String):
+func change_scene(scene: String, disconnections_allowed: bool):
 	get_tree().change_scene(scene)
+	can_disconnect = disconnections_allowed
